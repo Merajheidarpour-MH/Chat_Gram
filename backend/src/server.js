@@ -1,6 +1,7 @@
 // const express = require("express");
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import path from "path";
@@ -10,6 +11,7 @@ const app = express();
 dotenv.config();
 const PORT = ENV.PORT || 3000;
 app.use(express.json()); //req.body
+app.use(cookieParser());
 
 const __dirname = path.resolve();
 app.use("/api/auth", authRoutes);
